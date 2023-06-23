@@ -1,0 +1,14 @@
+# emptyChild testing file
+# Tests that a graph can be created,
+# a node can be added to the graph,
+# and an empty children list of the node can be printed out
+
+# Create a graph
+CreateGraph g1
+
+# Add a node
+AddNode g1 n1
+
+# Print the nodes in the graph and the children of n1
+ListNodes g1
+ListChildren g1 n1

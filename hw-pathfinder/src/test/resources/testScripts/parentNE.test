@@ -1,0 +1,10 @@
+# find path when parent node does not exist
+
+CreateGraph g
+
+AddNode g n1
+AddNode g n2
+
+AddEdge g n1 n2 1.111
+
+FindPath g n3 n1

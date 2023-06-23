@@ -1,0 +1,14 @@
+# find the shortest path with only one route
+
+CreateGraph g
+
+AddNode g n1
+AddNode g n2
+AddNode g n3
+
+AddEdge g n1 n2 1.111
+AddEdge g n1 n2 2.222
+AddEdge g n2 n3 3.333
+AddEdge g n2 n3 4.444
+
+FindPath g n1 n3

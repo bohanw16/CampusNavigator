@@ -1,0 +1,6 @@
+# find path when both parent and child do not exist
+
+created graph g
+
+unknown: n1
+unknown: n2

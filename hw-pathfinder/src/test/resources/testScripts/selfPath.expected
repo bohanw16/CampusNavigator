@@ -1,0 +1,11 @@
+# find path from a node to itself
+
+created graph g
+
+added node n1 to g
+
+added edge 1.111 from n1 to n1 in g
+
+path from n1 to n1:
+total cost: 0.000
+

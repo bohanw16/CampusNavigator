@@ -1,0 +1,13 @@
+# find the shortest path with two routes
+
+CreateGraph g
+
+AddNode g n1
+AddNode g n2
+AddNode g n3
+
+AddEdge g n1 n2 5.555
+AddEdge g n1 n3 1.111
+AddEdge g n3 n2 2.222
+
+FindPath g n1 n2

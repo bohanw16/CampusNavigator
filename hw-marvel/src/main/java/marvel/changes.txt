@@ -1,0 +1,8 @@
+Briefly list any changes you made to your graph class during hw-marvel,
+and why you made those changes.
+
+    1. getChildren():
+        If the given parent node doesn't exist, return null instead of throwing exception; avoid Exception throwing.
+        Changed the return value from a map that maps from child nodes to edge labels to a list of outgoing edges;
+        mapping children to outgoing edges is unnecessary because children nodes can be derived from edges.
+        Changed the JUnite test of getChildren so it's consistent with the change.

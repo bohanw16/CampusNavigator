@@ -1,0 +1,65 @@
+## CSE 331 hw-graph Part 2 Questions
+
+NOTE: This file is used as part of hw-graph-part2, and is not due as part of the hw-graph-part1
+submission. You may leave it blank for hw-graph-part1.
+
+## Part 1
+###########################################################################
+
+A few examples of possible Graph representations:
+
+    A: A collection of nodes and a collection of edges.
+    B: An adjacency list, in which each node is associated with a list of its outgoing edges.
+    C: An adjacency matrix, which explicitly represents, for every pair ⟨A,B⟩ of nodes, whether there 
+       is a link from A to B, and how many.
+
+1. In two or three sentences, explain an advantage and a disadvantage of each of the
+representations listed above (for example, in terms of runtime complexity, space
+complexity, or ease of implementation).
+
+    A:
+        Adv: readable and easy to implement
+        Dis: need to keep two data structures consistent so not efficient
+    B:
+        Adv: better space efficiency
+        Dis: difficult to implement and less efficient to search for/access edges
+    C:
+        Adv: easy to implement and efficient to access edges
+        Dis: takes a large space to store non-existing edges,
+            difficult to handle multiple edges from same parent to same child
+
+
+2. In two to three sentences, describe the representation you chose and explain why you
+chose it. If you chose to use a different representation than one of the three we described
+above, be sure to list its advantages and disadvantages, too.
+
+    I use a hashMap to associate nodes and its outgoing edges, and use a class Edge to represent edges.
+    Adv: more efficient to access nodes than adjacency list,
+        able to handle multiple edges from same parent to same child,
+        better space efficiency than adjacent matrix when the graph is sparse
+    Dis: bad space efficiency when there are a lot of edges,
+        need to traverse through and compare edge objects when checking identical edges
+
+
+## Part 4
+###########################################################################
+
+    (Please keep your answers brief and to-the-point.)
+
+1. Describe any new tests you added and why you added them, or why you feel that your original
+tests alone are sufficient.
+
+    I changed 4 testing functions in GraphJUnitTest.java so that their expected result
+    would be returned values false (from assertFalse) instead of IllegalArgumentException,
+    so that it would be consistent to the changes I made in the class functions on how it
+    deals with edge cases.
+
+
+2. Did you make any changes to your specifications as you were implementing your Graph? (yes/no)
+If yes, describe your changes and why you made them.
+
+    I changed how the class functions addNode() and addEdge() deal with invalid input (null,
+    non-existed nodes, repetitive nodes). Instead of throwing exceptions, they return a
+    boolean values to indicate whether they function correctly. It would reduce the exceptions
+    clients receive while keeping every invalid case checked.
+

@@ -1,0 +1,10 @@
+# find path from a node to itself
+
+CreateGraph g
+
+AddNode g n1
+
+AddEdge g n1 n1 1.111
+
+FindPath g n1 n1
+

@@ -1,0 +1,5 @@
+# Find a path from a node to itself using selfPath.csv
+
+loaded graph selfPath
+
+path from n1 to n1:

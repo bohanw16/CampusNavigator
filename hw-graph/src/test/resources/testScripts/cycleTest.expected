@@ -1,0 +1,20 @@
+# cycleGraph testing file
+# Tests that a graph can be created,
+# 2 nodes can be added to the graph,
+# and 2 edges can be added to 2 node to form a cycle
+
+# Create a graph
+created graph g1
+
+# Add two nodes
+added node n1 to g1
+added node n2 to g1
+
+# Add an edge for one edge
+added edge e1 from n1 to n2 in g1
+added edge e2 from n2 to n1 in g1
+
+# Print the node in the graph and the outgoing edges from n1
+g1 contains: n1 n2
+the children of n1 in g1 are: n2(e1)
+the children of n2 in g1 are: n1(e2)

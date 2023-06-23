@@ -1,0 +1,25 @@
+## CSE 331 hw-setup Questions
+## Part 6
+
+1. Why did Fibonacci fail the testThrowsIllegalArgumentException< test? What (if anything) did
+you have to do to fix it? If you did not have to change anything to fix this issue, explain why.
+
+    The first condition of the if-else blocks incorrectly included n = 0.
+    The condition of "if (n <= 0)" should be changed to "if (n < 0)".
+
+2. Why did Fibonacci fail the testBaseCase test? What (if anything) did you have to do to fix
+it? If you did not have to change anything to fix this issue, explain why.
+
+    When n == 0, Fibonacci was supposed to return 1 but threw an exception instead.
+    Since we exclude 0 from the first condition and include it in the second condition
+    where it returns 1, we did not need to change anything after we fixed the first part.
+
+3.Why did Fibonacci fail the testInductiveCase test? What (if anything) did you have to do to
+fix it? If you did not have to change anything to fix this issue, explain why.
+
+    Since n == 2 was not supposed to be a base case, it was incorrectly included in
+    the second condition instead of the third. So we need to change the
+    "else if (n <= 2)" to "else if (n < 2)". Additionally, Fibonacci should get the
+    sum of the previous two digits instead of the difference. So we need to change the
+    "return getFibTerm(n - 1) - getFibTerm(n - 2);" to
+    "return getFibTerm(n - 1) + getFibTerm(n - 2);".

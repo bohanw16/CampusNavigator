@@ -1,0 +1,5 @@
+# find path when both parent and child do not exist
+
+CreateGraph g
+
+FindPath g n1 n2

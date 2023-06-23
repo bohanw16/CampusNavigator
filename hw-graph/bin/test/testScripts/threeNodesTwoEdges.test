@@ -1,0 +1,21 @@
+# threeNodesTwoEdges testing file
+# Tests that a graph can be created,
+# three nodes can be added to the graph,
+# and two edges between them can be added
+
+# Create a graph
+CreateGraph g1
+
+# Add three nodes
+AddNode g1 n1
+AddNode g1 n2
+AddNode g1 n3
+
+# Add two edges
+AddEdge g1 n1 n2 e1
+AddEdge g1 n2 n3 e2
+
+# Print the nodes in the graph and the children of n1 and n2
+ListNodes g1
+ListChildren g1 n1
+ListChildren g1 n2

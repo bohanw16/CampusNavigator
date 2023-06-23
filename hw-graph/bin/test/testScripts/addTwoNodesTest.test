@@ -1,0 +1,13 @@
+# addTwoNodes testing file
+# Tests that a graph can be created,
+# and two nodes can be added to the graph
+
+# Create a graph
+CreateGraph g1
+
+# Add two nodes
+AddNode g1 n1
+AddNode g1 n2
+
+# Print the nodes in the graph
+ListNodes g1

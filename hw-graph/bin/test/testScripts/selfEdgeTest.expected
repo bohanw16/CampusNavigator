@@ -1,0 +1,17 @@
+# selfEdge testing file
+# Tests that a graph can be created,
+# a node can be added to the graph,
+# and an edge can be added from and to the same node
+
+# Create a graph
+created graph g1
+
+# Add one node
+added node n1 to g1
+
+# Add an edge for one node
+added edge e1 from n1 to n1 in g1
+
+# Print the node in the graph and the children of n1
+g1 contains: n1
+the children of n1 in g1 are: n1(e1)

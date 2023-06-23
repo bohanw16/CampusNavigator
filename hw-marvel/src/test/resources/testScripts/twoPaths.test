@@ -1,0 +1,5 @@
+# Find a path with where there exists 2 paths with equal distance between start node and end node
+
+LoadGraph twoPaths twoPaths.csv
+
+FindPath twoPaths n1 n3

@@ -1,0 +1,12 @@
+# test double rounding
+
+CreateGraph g
+
+AddNode g n1
+AddNode g n2
+AddNode g n3
+
+AddEdge g n1 n2 1.4444
+AddEdge g n2 n3 1.5555
+
+FindPath g n1 n3

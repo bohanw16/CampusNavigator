@@ -1,0 +1,5 @@
+# Find a path from a node to itself using selfPath.csv
+
+LoadGraph selfPath selfPath.csv
+
+FindPath selfPath n1 n1

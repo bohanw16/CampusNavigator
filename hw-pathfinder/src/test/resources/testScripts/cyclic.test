@@ -1,0 +1,13 @@
+# find path in a cyclic graph
+
+CreateGraph g
+
+AddNode g n1
+AddNode g n2
+AddNode g n3
+
+AddEdge g n1 n2 1.111
+AddEdge g n2 n3 1.111
+AddEdge g n3 n1 1.111
+
+FindPath g n1 n1

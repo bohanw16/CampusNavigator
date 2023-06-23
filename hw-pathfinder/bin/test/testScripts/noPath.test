@@ -1,0 +1,11 @@
+# find a non-existing path
+
+CreateGraph g
+
+AddNode g n1
+AddNode g n2
+AddNode g n3
+
+AddEdge g n1 n2 1.111
+
+FindPath g n2 n3

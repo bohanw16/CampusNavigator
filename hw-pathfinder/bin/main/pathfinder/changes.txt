@@ -1,0 +1,7 @@
+Briefly list any changes you made to your graph class during hw-pathfinder,
+and why you made those changes.
+
+    Changed the type that represents nodes and edge labels from String to generic types to make the class generic
+    In Graph and MarvelTestDriver, changed Graph and Edge declaration to accommodate to the changes,
+        including writing a comparator for edges used in sort() because generic type fields cannot use the default
+        comparator like String.

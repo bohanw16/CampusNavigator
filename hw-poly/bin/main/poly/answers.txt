@@ -1,0 +1,137 @@
+## CSE 331 hw-poly Questions
+## Part 0
+###########################################################################
+
+1. Multiplication Pseudocode
+
+    r = p * q:
+        set r = 0
+        {Inv: r = p_0 * q + p_1 * q + ... + p_(i-1) * q where p_i is the ith term in p}
+        foreach term, t_p, in p:
+            {Inv: r = p_0 * (q_0 + ... + q_(i-1)) + ... + p_(i-1) * (q_0 + ... + q_(i-1)) where q_i is the ith term in q}
+            foreach term, t_q, in q:
+                r = r + t_p + t_q
+        return r
+
+2. Division Pseudocode
+
+    maxD(p): // max degree of the given polynomial p
+        return the degree of first term (assume sorted)
+    maxC(p): // coefficient of the max-degree term of the given polynomial p
+        return the coefficient of the first term (assume sorted)
+
+    r = p / q:
+        set r = EMPTY POLYNOMIAL
+        set rmd = p by making a term-by-term copy of all terms in p to rmd
+        {Inv: p = rmd + r * q}
+        while maxD(rmd) >= maxD(q) && rmd != 0:
+            t_r = a term with coefficient (maxC(rmd) / maxC(q)) and degree (maxD(rmd) - maxD(q))
+            r = r + t_r
+            rmd = rmd - q * t_r
+        return r
+
+3. Division Example: (x3+x-1) / (x+1) = x2-x+2
+
+    p = x^3 + x - 1
+    q = x + 1
+    r = EMPTY POLYNOMIAL
+    rmd = copy of p = x^3 + x - 1
+    while maxD(rmd) >= maxD(q) && rmd != 0:
+        Iteration 1: p = (x^3 + x - 1), q = (x + 1), r = EMPTY, rmd = (x^3 + x - 1)
+            [t_r = a term with coefficient (maxC(rmd) / maxC(q)) and degree (maxD(rmd) - maxD(q))] t_r = (1 / 1) x^(3 - 1) = x^2
+            [r = r + t_r] r = EMPTY + x^2 = x^2
+            [rmd = rmd - q * t_r] rmd = (x^3 + x - 1) - (x + 1) * x^2 = -x^2 + x - 1
+        Iteration 2: p = (x^3 + x - 1), q = (x + 1), r = (x^2), rmd = (-x^2 + x - 1)
+            [t_r = a term with coefficient (maxC(rmd) / maxC(q)) and degree (maxD(rmd) - maxD(q))] t_r = (-1 / 1) x^(2 - 1) = -x
+            [r = r + t_r] r = x^2 + (-x) = x^2 - x
+            [rmd = rmd - q * t_r] rmd = (-x^2 + x - 1) - (x + 1) * (-x) = 2x - 1
+        Iteration 3: p = (x^3 + x - 1), q = (x + 1), r = (x^2 - x), rmd = (2x - 1)
+            [t_r = a term with coefficient (maxC(rmd) / maxC(q)) and degree (maxD(rmd) - maxD(q))] t_r = (2 / 1) x^(1 - 1) = 2
+            [r = r + t_r] r = x^2 - x + 2
+            [rmd = rmd - q * t_r] rmd = (2x - 1) - (x + 1) * 2 = -3
+    return r = x^2 - x + 2
+
+
+## Part 1
+###########################################################################
+
+1. Weakened Rep Invariant
+
+    1. RatNum(): no need to reduce in else block
+        Adv: fewer operations, more efficient
+        Dis: other methods that need reduced form will be less efficient
+    2. checkRep(): no need to check if the RatNum is in reduced form
+        Adv: fewer operations, more efficient
+        Dis: nothing specifically for this method
+    3. hashCode(): need to reduce this before hashing
+        Adv: only hashCode(), equals(), and toString() need reduced forms, could be more efficient for overall runtime
+        Dis: more operations, less efficient
+    4. equals(): need to reduce this & obj before comparing
+        Adv: only hashCode(), equals(), and toString() need reduced forms, could be more efficient for overall runtime
+        Dis: more operations, less efficient
+    5. toString(): need to divide numer & denom by gcd(numer, denom)
+        Adv: only hashCode(), equals(), and toString() need reduced forms, could be more efficient for overall runtime
+        Dis: more operations, less efficient
+
+2. Alternate add, sub, mul, div
+
+    These methods do not have @modifies or @effects in the method specs, so doing this will violate the spec
+
+3. Constructor checkReps
+
+    The class spec states that RatNum is an immutable class. The fields are private final,
+    and there is no way to change the fields.
+
+
+## Part 2
+###########################################################################
+
+1. Calls to checkRep in RatTerm
+
+    Only at the end of the constructor. Since RatTerm is immutable, we only need to check if it is valid
+    when it is constructed.
+
+2. Weakened Rep Invariant
+
+    1. RatTerm(): No need to set expt to 0 when coeff == 0
+        Adv: fewer operations, more efficient
+        Dis: other methods need to handle this special case
+
+    2. checkRep(): No need to check if expt == 0 when coeff == 0
+        Adv: fewer operations, more efficient
+        Dis: nothing for this method
+
+    3. getExpt(), toString(), equals(), hashCode(): all need an if statement to handle coeff == 0 ==> view expt as 0
+        Adv: other methods are faster, could be more efficient for overall runtime
+        Dis: more operations, less efficient
+
+3. Alternate Rep Invariant
+
+    1. RatTerm(): set expt to 0 when coeff == NaN
+        Adv: nothing
+        Dis: more operations, less efficient
+
+    2. checkRep(): check if expt == 0 when coeff == NaN
+        Adv: nothing
+        Dis: more operations, less efficient
+
+4. Preferred Invariants
+
+
+
+
+## Part 3
+###########################################################################
+
+1. Calls to checkRep in RatPoly
+
+    At the end of constructors and at the beginning and the end of every public method because the field
+    terms is not immutable so it has to be checked in every method that might modify it.
+
+2. Alternate Representation
+
+    Adv: PolyTerm class is not needed
+    Dis: in many methods, we need to traverse and modify two lists at the same time, which is very inefficient.
+
+    I prefer the original one it makes RatPoly class much more readable and easier to debug and potentially modify.
+

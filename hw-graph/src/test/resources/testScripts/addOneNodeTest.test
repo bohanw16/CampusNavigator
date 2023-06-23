@@ -1,0 +1,12 @@
+# addOneNode testing file
+# Tests that a graph can be created,
+# and a node can be added to the graph
+
+# Create a graph
+CreateGraph g1
+
+# Add a node
+AddNode g1 n1
+
+# Print the nodes in the graph
+ListNodes g1

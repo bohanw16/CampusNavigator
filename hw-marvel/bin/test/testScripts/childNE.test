@@ -1,0 +1,5 @@
+# Find a path with non-existing child node
+
+LoadGraph childNE childNE.csv
+
+FindPath childNE n1 n2

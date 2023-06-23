@@ -1,0 +1,35 @@
+# twoGraphs testing file
+# Tests that two graph can be created,
+# two nodes can be added to the first graph,
+# two nodes can be added to the second graph,
+# an edge can be added to the first graph,
+# an edge can be added to the second graph,
+# and the node lists and children lists can be printed out correctly
+
+# Create a graph g1
+CreateGraph g1
+
+# Add two nodes to g1
+AddNode g1 n1
+AddNode g1 n2
+
+# Add an edge to g1
+AddEdge g1 n1 n2 e1
+
+# Print the node in g1 and the children of n1
+ListNodes g1
+ListChildren g1 n1
+
+# Create a graph g2
+CreateGraph g2
+
+# Add two nodes to g2
+AddNode g2 n3
+AddNode g2 n4
+
+# Add an edge to g2
+AddEdge g2 n3 n4 e2
+
+# Print the node in g2 and the children of n3
+ListNodes g2
+ListChildren g2 n3

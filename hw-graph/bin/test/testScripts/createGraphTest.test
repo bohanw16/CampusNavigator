@@ -1,0 +1,9 @@
+# createGraph testing file
+# Tests that a graph can be created,
+# and an empty node list can be printed out
+
+# Create a graph
+CreateGraph g1
+
+# Print the nodes in the graph
+ListNodes g1

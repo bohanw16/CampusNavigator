@@ -1,0 +1,15 @@
+# test double rounding
+
+created graph g
+
+added node n1 to g
+added node n2 to g
+added node n3 to g
+
+added edge 1.444 from n1 to n2 in g
+added edge 1.556 from n2 to n3 in g
+
+path from n1 to n3:
+n1 to n2 with weight 1.444
+n2 to n3 with weight 1.556
+total cost: 3.000

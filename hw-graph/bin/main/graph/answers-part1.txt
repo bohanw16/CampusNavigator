@@ -1,0 +1,32 @@
+## CSE 331 hw-graph Part 1 Questions
+
+## Part 1
+###########################################################################
+
+Briefly explain why you included the operations you did and why you feel they are a sufficient
+interface to a graph. If your design includes multiple classes or interfaces, explain why you
+included each one; if not, explain whether you considered additional classes and why you decided
+not to include them.
+
+    Besides the Graph class, I included a nested class Edge. Nodes only have one attribute label,
+    so they can be represented by just String type. Edges have 3 attributes, which is better to
+    be represented by a new immutable class. I included 3 getter functions each for one attribute
+    so that clients can access the data without potentially modifying the object.
+
+    For Graph, I included a function that gets all nodes, which are helpful operations for
+    accessing the graph's data. Function getChildren gets clients the children nodes of
+    a given parent node with corresponding outgoing edges, which is helpful for graph traversal.
+    Functions addNode and addEdge allow clients to modify the graph.
+
+
+## Part 2
+###########################################################################
+
+What was your testing strategy for this assignment? How do your script tests and JUnit tests
+differ from each other (if they do), and why?
+
+    Test the behaviors of all functions in different cases, with 1, 2, or 3 nodes and 1, 2, or 3 edges,
+    and special cases, cycle and self-pointing edge.
+    In script tests, test the behaviors of the functions that modify a graph in regular cases.
+    In Junit tests, test the exceptions thrown in incorrect cases.
+

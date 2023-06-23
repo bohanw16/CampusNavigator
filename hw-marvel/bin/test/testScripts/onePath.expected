@@ -1,0 +1,7 @@
+# Find the only path between two nodes
+
+loaded graph onePath
+
+path from n1 to n3:
+n1 to n2 via a1
+n2 to n3 via a2

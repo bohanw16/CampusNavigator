@@ -1,0 +1,18 @@
+# test a graph that has two paths of equal weight
+
+created graph g
+
+added node n1 to g
+added node n2 to g
+added node n3 to g
+added node n4 to g
+
+added edge 1.111 from n1 to n2 in g
+added edge 2.222 from n1 to n3 in g
+added edge 2.222 from n2 to n4 in g
+added edge 1.111 from n3 to n4 in g
+
+path from n1 to n4:
+n1 to n2 with weight 1.111
+n2 to n4 with weight 2.222
+total cost: 3.333

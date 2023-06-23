@@ -1,0 +1,20 @@
+# cycleGraph testing file
+# Tests that a graph can be created,
+# 2 nodes can be added to the graph,
+# and 2 edges can be added to 2 node to form a cycle
+
+# Create a graph
+CreateGraph g1
+
+# Add two nodes
+AddNode g1 n1
+AddNode g1 n2
+
+# Add an edge for one edge
+AddEdge g1 n1 n2 e1
+AddEdge g1 n2 n1 e2
+
+# Print the node in the graph and the outgoing edges from n1
+ListNodes g1
+ListChildren g1 n1
+ListChildren g1 n2

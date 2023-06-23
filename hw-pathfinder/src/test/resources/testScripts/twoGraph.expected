@@ -1,0 +1,29 @@
+# test loading two graphs
+
+created graph g1
+
+added node n1 to g1
+added node n2 to g1
+added node n3 to g1
+
+added edge 1.111 from n1 to n2 in g1
+added edge 1.111 from n2 to n3 in g1
+
+path from n1 to n3:
+n1 to n2 with weight 1.111
+n2 to n3 with weight 1.111
+total cost: 2.222
+
+created graph g2
+
+added node n1 to g2
+added node n2 to g2
+added node n3 to g2
+
+added edge 1.111 from n1 to n2 in g2
+added edge 1.111 from n2 to n3 in g2
+
+path from n1 to n3:
+n1 to n2 with weight 1.111
+n2 to n3 with weight 1.111
+total cost: 2.222
